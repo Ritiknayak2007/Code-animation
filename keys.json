@@ -1,0 +1,13 @@
+{
+ "iterations": 200000,
+ "buyers": {
+  "e4bc9f2a6f66a09ba268df827ca8305740c36a66172df817c294654532a8459c": {
+   "salt": "dde275b26c5a8172d3262e0654db34fc",
+   "iv": "fa463ded1183b5238986180f",
+   "wrapped": "fde8a4a66de14e5cc744b22fcb7a1fcc9e61775882cccd1570f1117f6ac84be6",
+   "tag": "297c3b8b7fe1b9a9b174edd433665286"
+  }
+ },
+ "version": "1.0.0",
+ "updated": "2026-11-26"
+}

@@ -1,0 +1,8 @@
+code-animation skill
+Copyright (c) 2026 <Your name / brand>. All rights reserved.
+
+Buyers may use this skill to make videos for personal and commercial projects.
+Redistribution, resale or sharing of the skill files themselves is not permitted
+without written permission from the copyright holder.
+
+Third-party components keep their own licenses: three.js (MIT), fonts (SIL OFL 1.1).
