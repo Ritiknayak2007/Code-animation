@@ -1,6 +1,12 @@
-# code-animation (Claude skill)
+# code-animation 1.1 (Claude skill)
 
-Cinematic 3D animated films made entirely in code. Give Claude a topic, a script or a voiceover, and it returns a finished MP4.
+A whole video studio in one Claude skill. Give Claude a topic, a script, a voiceover, your own footage or a reference video — it asks one question (aspect ratio) and returns a finished, professionally edited MP4.
+
+- Cinematic 3D worlds made in code (oceans, deserts, cities, people, animals, vehicles, weather)
+- Real stock footage, music and sound effects from free libraries, safety-checked, with an automatic credits list
+- Talking-head edits: jump cuts, word-by-word captions, punch-ins, lower thirds, b-roll
+- Match a reference video's pacing, camera moves and colour
+- Web-style motion graphics, glass UI, before/after grades, beat-synced cuts, auto audio mix
 
 **This repo is locked.** The engine is encrypted and needs a personal license key.
 
@@ -16,4 +22,4 @@ Tap **Save** on the card that appears, then type `/code-animation` whenever you 
 Updates install automatically: every run downloads the newest version.
 
 ## Requirements
-Works in the Claude app (Pro and above, with code execution on) and in Claude Code. Rendering is done in software, so a 60-second film takes about 40–75 minutes.
+Claude app (Pro and above) with code execution on, or Claude Code. Turn on network access (Settings → Capabilities) so the skill can fetch stock media; without it, everything is built in code. Rendering runs in software: a 60-second film takes roughly 15–75 minutes.
