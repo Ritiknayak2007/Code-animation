@@ -12,10 +12,14 @@ let contentKey;
 try { const kek = crypto.pbkdf2Sync(key, Buffer.from(e.salt, 'hex'), keys.iterations, 32, 'sha256');
   contentKey = open(kek, Buffer.from(e.iv, 'hex'), Buffer.from(e.wrapped, 'hex'), Buffer.from(e.tag, 'hex')); }
 catch { console.error('License key could not unlock this release.'); process.exit(3); }
-const pd = path.join(here, 'parts');
-const parts = fs.readdirSync(pd).filter(f => /^bundle\.\d+\.b64$/.test(f)).sort();
-const b = Buffer.from(parts.map(f => fs.readFileSync(path.join(pd, f), 'utf8')).join('').replace(/\s+/g, ''), 'base64');
-const tgz = open(contentKey, b.subarray(0, 12), b.subarray(12, b.length - 16), b.subarray(b.length - 16));
-fs.mkdirSync(out, { recursive: true }); const tmp = path.join(out, '.bundle.tgz'); fs.writeFileSync(tmp, tgz);
-execFileSync('tar', ['-xzf', tmp, '-C', out]); fs.unlinkSync(tmp);
+const unpack = (dir, re) => { const files = fs.readdirSync(dir).filter(f => re.test(f)).sort();
+  const b = Buffer.from(files.map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('').replace(/\s+/g, ''), 'base64');
+  const tgz = open(contentKey, b.subarray(0, 12), b.subarray(12, b.length - 16), b.subarray(b.length - 16));
+  const tmp = path.join(out, '.bundle.tgz'); fs.writeFileSync(tmp, tgz); execFileSync('tar', ['-xzf', tmp, '-C', out]); fs.unlinkSync(tmp); };
+fs.mkdirSync(out, { recursive: true });
+unpack(path.join(here, 'parts'), /^bundle\.\d+\.b64$/);
+// updates published as patches (patches/pN.MM.b64) are applied in order on top of the base bundle
+const pdir = path.join(here, 'patches');
+if (fs.existsSync(pdir)) { const ns = [...new Set(fs.readdirSync(pdir).map(f => (f.match(/^p(\d+)\.\d+\.b64$/) || [])[1]).filter(Boolean))].map(Number).sort((a, b) => a - b);
+  for (const n of ns) unpack(pdir, new RegExp(`^p${n}\\.\\d+\\.b64$`)); }
 console.log(`Unlocked code-animation ${keys.version} -> ${out}`);

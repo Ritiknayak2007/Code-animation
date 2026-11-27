@@ -1,7 +1,8 @@
-# code-animation 1.1 (Claude skill)
+# code-animation 1.2 (Claude skill)
 
 A whole video studio in one Claude skill. Give Claude a topic, a script, a voiceover, your own footage or a reference video — it asks one question (aspect ratio) and returns a finished, professionally edited MP4.
 
+- **Style presets** — add one after the skill name: `@holographic` (sci-fi HUD explainers), `@cinematic`, `@talkinghead`, `@motion`, `@promo`, `@explainer`
 - Cinematic 3D worlds made in code (oceans, deserts, cities, people, animals, vehicles, weather)
 - Real stock footage, music and sound effects from free libraries, safety-checked, with an automatic credits list
 - Talking-head edits: jump cuts, word-by-word captions, punch-ins, lower thirds, b-roll
@@ -17,7 +18,7 @@ Buy lifetime access on the Ritik – Projects & Workflows website. Your key appe
 In Claude, send:
 > Save the skill from github.com/Ritiknayak2007/code-animation — my license key is CA-XXXXX-XXXXX-XXXXX-XXXXX
 
-Tap **Save** on the card that appears, then type `/code-animation` whenever you want a video.
+Tap **Save** on the card that appears, then type `/code-animation` whenever you want a video — or pick a style: `/code-animation @holographic a 45-second explainer about my app`.
 
 Updates install automatically: every run downloads the newest version.
 
